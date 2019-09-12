@@ -49,9 +49,9 @@
 
     <script id="hackSpotsTable" type="text/html">
         <table>
-            <tr><th class="tHeader">Name</th><th class="tHeader">Address</th><th class="tHeader">Wifi</th><th class="tHeader">State</th><th class="tHeader">Country</th><th class="">Elsewhere</th></tr>
+            <tr><th class="tHeader">Name</th><th class="tHeader">Address</th><th class="tHeader">City</th><th class="tHeader">State</th><th class="tHeader">Country</th><th class="">Elsewhere</th></tr>
             {{#rows}}
-                <tr id="{{rowNumber}}" class="spotRow"><td>{{name}}</td><td>{{address}}</td><td>{{wifi}}</td><td>{{state}}</td><td>{{country}}</td><td><a class="button" href="https://maps.google.com/maps?q={{address}},{{city}},{{state}}" target="_blank">G Map</a> <a class="button" href="https://citymapper.com/directions?endaddress={{address}}&endcoord={{lat}}%2C{{long}}&endname=New+Scotland+Yard&startcoord=51.525601%2C-0.08755&startname=Old+Street" target="_blank">Citymapper</a></td></tr>
+                <tr id="{{rowNumber}}" class="spotRow"><td>{{name}}</td><td>{{address}}</td><td>{{wifipassword}}</td><td>{{state}}</td><td>{{country}}</td><td><a class="button" href="https://maps.google.com/maps?q={{address}},{{city}},{{state}}" target="_blank">G Map</a> <a class="button" href="https://citymapper.com/directions?endaddress={{address}}&endcoord={{lat}}%2C{{long}}&endname=New+Scotland+Yard&startcoord=51.525601%2C-0.08755&startname=Old+Street" target="_blank">Citymapper</a></td></tr>
             {{/rows}}
         </table>
     </script>
@@ -61,7 +61,7 @@
             <h4 class="fauxButton">MOST RECENT SPOT</h4>
             <h2>{{name}}</h2>
             <p class="colorText">{{address}}<p>
-            <p class="colorText">{{wifi}}{{#state}}, {{state}}{{/state}}{{#postcode}}, {{postcode}}{{/postcode}}</p>
+            <p class="colorText">{{wifipassword}}{{#state}}, {{state}}{{/state}}{{#postcode}}, {{postcode}}{{/postcode}}</p>
             <ul>
                 <li><span class="category">Wifi:</span> {{wifipassword}}</li>
                 <li><span class="category">Outlets:</span> {{outlets}}</li>
@@ -87,7 +87,7 @@
             <h4 class="fauxButton">SELECTED PLACE</h4>
             <h2>{{name}}</h2>
             <p class="colorText">{{address}}<p>
-            <p class="colorText">{{wifi}}{{#state}}, {{state}}{{/state}}{{#postcode}}, {{postcode}}{{/postcode}}</p>
+            <p class="colorText">{{wifipassword}}{{#state}}, {{state}}{{/state}}{{#postcode}}, {{postcode}}{{/postcode}}</p>
             <ul>
                 <li><span class="category">Wifi:</span> {{wifipassword}}</li>
                 <li><span class="category">Outlets:</span> {{outlets}}</li>
