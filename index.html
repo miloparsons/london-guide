@@ -12,11 +12,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href='https://api.tiles.mapbox.com/mapbox.js/v1.4.0/mapbox.css' rel='stylesheet' />
     <link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic'>
-    <link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Anton&display=swap'>
+    <link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Roboto'>
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link media="screen" rel="stylesheet" type="text/css" href="css/style.css">
     <link media="screen" rel="stylesheet" type="text/css" href="css/site.css">
     <link rel="stylesheet" href="css/MarkerCluster.css" />
     <link rel="stylesheet" href="css/MarkerCluster.Default.css" />
+
+
 </head>
 
 <body>
@@ -24,7 +29,7 @@
         <h1>London Guide</h1>
         <div>
             <ul class="nav">
-                <li><strong>A collection of places you should go in London when visiting Box EMEA!</strong></li>
+                <li><strong>A collection of places you should go in London!</strong></li>
             </ul>
         </div>
         <div class="container">
@@ -49,30 +54,30 @@
 
     <script id="hackSpotsTable" type="text/html">
         <table>
-            <tr><th class="tHeader">Name</th><th class="tHeader">Address</th><th class="tHeader">City</th><th class="tHeader">State</th><th class="tHeader">Country</th><th class="">Elsewhere</th></tr>
+            <tr><th class="tHeader">Name</th><th class="tHeader">Address</th><th class="tHeader">City</th><th class="tHeader">Type</th><th class="tHeader">Cuisine</th><th class="tHeader">Price</th><th class="">Elsewhere</th></tr>
             {{#rows}}
-                <tr id="{{rowNumber}}" class="spotRow"><td>{{name}}</td><td>{{address}}</td><td>{{wifipassword}}</td><td>{{state}}</td><td>{{country}}</td><td><a class="button" href="https://maps.google.com/maps?q={{address}},{{city}},{{state}}" target="_blank">G Map</a> <a class="button" href="https://citymapper.com/directions?endaddress={{address}}&endcoord={{lat}}%2C{{long}}&endname={{name}}&startcoord=51.525601%2C-0.08755&startname=Old+Street" target="_blank">Citymapper</a></td></tr>
+                <tr id="{{rowNumber}}" class="spotRow"><td>{{name}}</td><td>{{address}}</td><td>{{city}}</td><td>{{type}}</td><td>{{cuisine}}</td><td>{{price}}</td><td><a class="button" href="https://maps.google.com/maps?q={{name}},{{address}},{{city}}" target="_blank">G Map</a> <a class="button" href="https://citymapper.com/directions?endaddress={{address}}&endcoord={{lat}}%2C{{long}}&endname={{name}}&startcoord=51.525601%2C-0.08755&startname=Old+Street" target="_blank">Citymapper</a></td></tr>
             {{/rows}}
         </table>
     </script>
 
     <script id="latestSpot" type="text/html">
         {{#rows}}
-            <h4 class="fauxButton">MOST RECENT SPOT</h4>
+            <h4 class="fauxButton">RECENTLY ADDED PLACE</h4>
             <h2>{{name}}</h2>
             <p class="colorText">{{address}}<p>
-            <p class="colorText">{{city}}{{#state}}, {{state}}{{/state}}{{#postcode}}, {{postcode}}{{/postcode}}</p>
+            <p class="colorText">{{city}}</p>
+            <p class="colorText">{{postcode}}</p>
             <ul>
-                <li><span class="category">Wifi:</span> {{wifipassword}}</li>
-                <li><span class="category">Outlets:</span> {{outlets}}</li>
-                <li><span class="category">Couch:</span> {{couch}}</li>
-                <li><span class="category">Large Table:</span> {{largetable}}</li>
-                <li><span class="category">Outdoor Seating:</span> {{outdoorseating}}</li>
-                <li><span class="category">Brewing:</span> {{brewing}}</li>
-                <li><span class="category">Contributed By:</span> <a href="http://www.twitter.com/{{contributerstwitter}}" target="_blank">@{{contributerstwitter}}</a></li>
+                <li><span class="category">Type:</span> {{type}}</li>
+                <li><span class="category">Cuisine:</span> {{cuisine}}</li>
+                <li><span class="category">Tags:</span> {{tags}}</li>
+                <li><span class="category">Price:</span> {{price}}</li>
+                <li><span class="category">Website:</span> <a href="{{website}}" target="_blank">{{website}}</a></li>
+                <li><span class="category">Suggested By:</span>{{suggestedby}}</a></li>
             </ul>
             <ul>
-                <li><a href="https://maps.google.com/maps?q={{address}},{{city}},{{state}}" target="_blank">View in Google Maps</a></li>
+                <li><a href="https://maps.google.com/maps?q={{name}},{{address}},{{city}}" target="_blank">View in Google Maps</a></li>
                 <li><a href="https://citymapper.com/directions?endaddress={{address}}&endcoord={{lat}}%2C{{long}}&endname={{name}}&startcoord=51.525601%2C-0.08755&startname=Old+Street" target="_blank">Navigate on Citymapper</a></li>
             </ul>
         {{/rows}}
@@ -87,17 +92,18 @@
             <h4 class="fauxButton">SELECTED PLACE</h4>
             <h2>{{name}}</h2>
             <p class="colorText">{{address}}<p>
-            <p class="colorText">{{city}}{{#state}}, {{state}}{{/state}}{{#postcode}}, {{postcode}}{{/postcode}}</p>
-            <ul>
-                <li><span class="category">Wifi:</span> {{wifipassword}}</li>
-                <li><span class="category">Outlets:</span> {{outlets}}</li>
-                <li><span class="category">Couch:</span> {{couch}}</li>
-                <li><span class="category">Large Table:</span> {{largetable}}</li>
-                <li><span class="category">Outdoor Seating:</span> {{outdoorseating}}</li>
-                <li><span class="category">Brewing:</span> {{brewing}}</li>
+            <p class="colorText">{{city}}</p>
+            <p class="colorText">{{postcode}}</p>
+                <ul>
+                    <li><span class="category">Type:</span> {{type}}</li>
+                    <li><span class="category">Cuisine:</span> {{cuisine}}</li>
+                    <li><span class="category">Tags:</span> {{tags}}</li>
+                    <li><span class="category">Price:</span> {{price}}</li>
+                    <li><span class="category">Website:</span> <a href="{{website}}" target="_blank">{{website}}</a></li>
+                    <li><span class="category">Suggested By:</span>{{suggestedby}}</a></li>
             </ul>
             <ul>
-                <li><a href="https://maps.google.com/maps?q={{name}},{{address}}" target="_blank">View in Google Maps</a></li>
+                <li><a href="https://maps.google.com/maps?q={{name}},{{address}},{{city}}" target="_blank">View in Google Maps</a></li>
                 <li><a href="https://citymapper.com/directions?endaddress={{address}}&endcoord={{lat}}%2C{{long}}&endname={{name}}&startcoord=51.525601%2C-0.08755&startname=Old+Street
                     " target="_blank">Navigate on Citymapper</a></li>
             </ul>
@@ -107,7 +113,7 @@
     <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             var gData
-            var URL = "1wZcl35ZEYizUgl-H1ZWe4OHlgXCIBgapLe8JIuE5Tu4"
+            var URL = "1R22IbO3qsBfAcPN7rckse3Ryl0XajDztDARdUor4Px0"
             Tabletop.init({ key: URL, callback: showInfo, simpleSheet: true })
         })
 
@@ -167,7 +173,7 @@
                 var latestCompleteSpot = []
                 var startWithLatestRow = data.reverse()
                 startWithLatestRow.forEach(function (row) {
-                    if (!row.lat || !row.long || !row.name || !row.address || !row.city || !row.state) return
+                    if (!row.lat || !row.long || !row.name || !row.address || !row.city ) return
                     else latestCompleteSpot.push(row)
                 })
                 return latestCompleteSpot[0]
@@ -219,6 +225,7 @@
             $('.spotRow').first().click()
         })
     </script>
+
 </body>
 
 </html>
