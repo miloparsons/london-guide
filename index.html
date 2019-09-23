@@ -54,9 +54,9 @@
 
     <script id="hackSpotsTable" type="text/html">
         <table>
-            <tr><th class="tHeader">Name</th><th class="tHeader">Address</th><th class="tHeader">City</th><th class="tHeader">Type</th><th class="tHeader">Cuisine</th><th class="tHeader">Price</th><th class="">Elsewhere</th></tr>
+            <tr><th class="tHeader">Guide</th><th class="tHeader">Name</th><th class="tHeader">Address</th><th class="tHeader">City</th><th class="tHeader">Type</th><th class="tHeader">Cuisine</th><th class="tHeader">Price</th><th class="">Elsewhere</th></tr>
             {{#rows}}
-                <tr id="{{rowNumber}}" class="spotRow"><td>{{name}}</td><td>{{address}}</td><td>{{city}}</td><td>{{type}}</td><td>{{cuisine}}</td><td>{{price}}</td><td><a class="button" href="https://maps.google.com/maps?q={{name}},{{address}},{{city}}" target="_blank">G Map</a> <a class="button" href="https://citymapper.com/directions?endaddress={{address}}&endcoord={{lat}}%2C{{long}}&endname={{name}}&startcoord=51.525601%2C-0.08755&startname=Old+Street" target="_blank">Citymapper</a></td></tr>
+                <tr id="{{rowNumber}}" class="spotRow"><td>{{suggestedby}}</td><td>{{name}}</td><td>{{address}}</td><td>{{city}}</td><td>{{type}}</td><td>{{cuisine}}</td><td>{{price}}</td><td><a class="button" href="https://maps.google.com/maps?q={{name}},{{address}},{{city}}" target="_blank">G Map</a> <a class="button" href="https://citymapper.com/directions?endaddress={{address}}&endcoord={{lat}}%2C{{long}}&endname={{name}}&startcoord=51.525601%2C-0.08755&startname=Old+Street" target="_blank">Citymapper</a></td></tr>
             {{/rows}}
         </table>
     </script>
@@ -69,12 +69,13 @@
             <p class="colorText">{{city}}</p>
             <p class="colorText">{{postcode}}</p>
             <ul>
-                <li><span class="category">Type:</span> {{type}}</li>
-                <li><span class="category">Cuisine:</span> {{cuisine}}</li>
-                <li><span class="category">Tags:</span> {{tags}}</li>
-                <li><span class="category">Price:</span> {{price}}</li>
-                <li><span class="category">Website:</span> <a href="{{website}}" target="_blank">{{website}}</a></li>
-                <li><span class="category">Suggested By:</span>{{suggestedby}}</a></li>
+                <li><span class="category">Type:</span><span class="cattest">{{type}}</span></li>
+                <li><span class="category">Vibe:</span><span class="cattest">{{vibe}}</span></li>
+                <li><span class="category">Description:</span><span class="catdesc">{{description}}</span></li>
+                <li><span class="category">Tags:</span><span class="cattest">{{tags}}</span></li>
+                <li><span class="category">Price:</span><span class="cattest">{{price}}</span></li>
+                <li><span class="category">Website:</span><span class="cattest"><a href="{{website}}" target="_blank">{{website}}</a></span></li>
+                <li><span class="category">Suggested By:</span><span class="cattest">{{suggestedby}}</span></li>
             </ul>
             <ul>
                 <li><a href="https://maps.google.com/maps?q={{name}},{{address}},{{city}}" target="_blank">View in Google Maps</a></li>
@@ -95,12 +96,13 @@
             <p class="colorText">{{city}}</p>
             <p class="colorText">{{postcode}}</p>
                 <ul>
-                    <li><span class="category">Type:</span> {{type}}</li>
-                    <li><span class="category">Cuisine:</span> {{cuisine}}</li>
-                    <li><span class="category">Tags:</span> {{tags}}</li>
-                    <li><span class="category">Price:</span> {{price}}</li>
-                    <li><span class="category">Website:</span> <a href="{{website}}" target="_blank">{{website}}</a></li>
-                    <li><span class="category">Suggested By:</span>{{suggestedby}}</a></li>
+                    <li><span class="category">Type:</span><span class="cattest">{{type}}</span></li>
+                    <li><span class="category">Vibe:</span><span class="cattest">{{vibe}}</span></li>
+                    <li><span class="category">Description:</span><span class="catdesc">{{description}}</span></li>
+                    <li><span class="category">Tags:</span><span class="cattest">{{tags}}</span></li>
+                    <li><span class="category">Price:</span><span class="cattest">{{price}}</span></li>
+                    <li><span class="category">Website:</span><span class="cattest"><a href="{{website}}" target="_blank">{{website}}</a></span></li>
+                    <li><span class="category">Suggested By:</span><span class="cattest">{{suggestedby}}</span></li>
             </ul>
             <ul>
                 <li><a href="https://maps.google.com/maps?q={{name}},{{address}},{{city}}" target="_blank">View in Google Maps</a></li>
